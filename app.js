@@ -2,6 +2,7 @@
 /* 
 ONE G9 - Alura Latam
 Elaborado por: Omar Hernández Bravo - omar.hb.edu(AT)gmail.com
+Septiembre 2025
 */
 
 // Se declara el arreglo para alojar los nombres de los amigos que participan del sorteo
@@ -21,7 +22,7 @@ function agregarAmigo() {
     }
 
 // Se valida número máximo de nombres
-    if (amigos.length >= 5) {
+    if (amigos.length >= 15) {
         alert(`No se pueden agregar más amigos. Máximo ${amigos.length}.`);
         input.value = '';
         input.focus();
@@ -35,4 +36,14 @@ function agregarAmigo() {
     lista.appendChild(li);
     input.value = '';
     input.focus();
+}
+
+// Función para realizar el sorteo
+function sortearAmigo() {
+    const indice = Math.floor(Math.random() * amigos.length);
+    const nombreElegido = amigos[indice];
+
+    // Se muestra el nombre sorteado
+    const resultado = document.getElementById('resultado');
+    resultado.innerHTML = `<li>El amigo secreto es: <strong>${nombreElegido}</strong></li>`;
 }
